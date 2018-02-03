@@ -53,6 +53,12 @@ class IconRating extends Component {
     this.onMouseLeave = this.onMouseLeave.bind(this);
     this.onClickRating = this.onClickRating.bind(this);
   }
+  
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentRating != this.state.currentRating) {
+      this.setState({currentRating: nextProps.currentRating});
+    }
+  }
 
   onMouseEnter(e, currentRating) {
     let rating = currentRating;
